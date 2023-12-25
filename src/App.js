@@ -18,7 +18,7 @@ const YoutubePartyApp = () => {
     youtubePlayerRef.current = new window.YT.Player("youtube-player", {
       height: "360",
       width: "640",
-      videoId: "YOUR_VIDEO_ID", // ここにYouTube動画IDを設定
+      videoId: "yXQViqx6GMY", // ここにYouTube動画IDを設定
       events: {
         onReady: onPlayerReady,
       },
@@ -30,7 +30,8 @@ const YoutubePartyApp = () => {
   };
 
   const handlePlay = () => {
-    const randomTime = Math.floor(Math.random() * 120) + 1; // 1から120秒のランダムな時間
+    // 60から80秒のランダムな時間
+    const randomTime = Math.floor(Math.random() * 20) + 60;
     setPlaying(true);
     youtubePlayerRef.current.playVideo();
 
@@ -42,7 +43,10 @@ const YoutubePartyApp = () => {
 
   return (
     <div>
-      <div style={{ opacity: 0 }} id="youtube-player"></div>
+      <div
+        id="youtube-player"
+        // style={{ opacity: 0 }}
+      ></div>
       <button onClick={handlePlay} disabled={playing}>
         {playing ? "再生中..." : "プレゼント交換開始！"}
       </button>
